@@ -11,6 +11,10 @@ class TurtleNode(Node):
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
         self.subscription = self.create_subscription(Bool, 'turtle_enabled', self.enabled_callback, 10)
         self.timer = self.create_timer(1.0, self.publish_twist)
+
+        self.declare_parameter('linear_speed', 2.0)
+        self.declare_parameter('angular_speed', 1.0)
+
         self.enabled = False
         self.get_logger().info("Turtle Node started!")
 
@@ -21,11 +25,14 @@ class TurtleNode(Node):
 
     def publish_twist(self):
         if self.enabled:
+            linear_speed = self.get_parameter('linear_speed').get_parameter_value().double_value
+            angular_speed = self.get_parameter('angular_speed').get_parameter_value().double_value
+
             twist = Twist()
-            twist.linear.x = 2.0
-            twist.angular.z = 1.0
+            twist.linear.x = linear_speed
+            twist.angular.z = angular_speed
             self.publisher_.publish(twist)
-            self.get_logger().info("Published twist message")
+            self.get_logger().info(f"Published twist message with linear_speed={linear_speed}, angular_speed={angular_speed}")
 
 def main(args=None):
     rclpy.init(args=args)
