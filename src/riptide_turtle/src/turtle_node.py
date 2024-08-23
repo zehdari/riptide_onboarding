@@ -1,27 +1,33 @@
 #!/usr/bin/env python3
 
-import rclpy  # ROS 2 Python client library
-from rclpy.node import Node  # Base class for creating a ROS 2 node
-from geometry_msgs.msg import Twist  # Message type for velocity commands (linear and angular)
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+from std_msgs.msg import Bool
 
 class TurtleNode(Node):
-    # Node class that publishes Twist messages to control the turtle in turtlesim
     def __init__(self):
         super().__init__('turtle_node')
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+        self.subscription = self.create_subscription(Bool, 'turtle_enabled', self.enabled_callback, 10)
         self.timer = self.create_timer(1.0, self.publish_twist)
+        self.enabled = False
         self.get_logger().info("Turtle Node started!")
-    
+
+    def enabled_callback(self, msg):
+        self.enabled = msg.data
+        state_str = "Enabled" if self.enabled else "Disabled"
+        self.get_logger().info(f"Received state: {state_str}")
+
     def publish_twist(self):
-        # Publishes a hardcoded Twist message to the '/turtle1/cmd_vel' topic
-        twist = Twist()
-        twist.linear.x = 2.0
-        twist.angular.z = 1.0
-        self.publisher_.publish(twist)
-        self.get_logger().info("Published twist message")
+        if self.enabled:
+            twist = Twist()
+            twist.linear.x = 2.0
+            twist.angular.z = 1.0
+            self.publisher_.publish(twist)
+            self.get_logger().info("Published twist message")
 
 def main(args=None):
-    # Main function to initialize the node and keep it spinning
     rclpy.init(args=args)
     node = TurtleNode()
     rclpy.spin(node)
