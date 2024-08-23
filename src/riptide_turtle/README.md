@@ -47,10 +47,20 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
 
    ```
 
-2. **Run the node:**
+2. **Build the Package:**
+
+   Before running the node, ensure you are in the osu-uwrt/development/software directory and build the riptide_turtle package:
 
    ```bash
-   ros2 run riptide_onboarding turtle_node
+   colcon build --packages-select riptide_turtle
+   ```
+
+   **Note:** You will need to do this everytime you update a node file.
+
+3. **Run the node:**
+
+   ```bash
+   ros2 run riptide_onboarding turtle_node.py
    ```
 
 ### Result
@@ -109,13 +119,21 @@ Create a separate ROS 2 node that publishes to the `/turtle_enabled` topic, enab
 
    ```
 
-2. **Run the Kill Switch Node:**
+2. **Rebuild the Package:**
+
+   Before running the node, ensure you are in the osu-uwrt/development/software directory and rebuild the riptide_turtle package:
 
    ```bash
-   ros2 run riptide_onboarding turtle_kill_switch
+   colcon build --packages-select riptide_turtle
    ```
 
-3. **Check if the Kill Switch is Publishing:**
+3. **Run the Kill Switch Node:**
+
+   ```bash
+   ros2 run riptide_onboarding turtle_kill_switch.py
+   ```
+
+4. **Check if the Kill Switch is Publishing:**
 
    You can verify that the `turtle_kill_switch` node is publishing messages to the `/turtle_enabled` topic by using the following command:
 
@@ -183,13 +201,21 @@ Modify the `TurtleNode` to listen to the `/turtle_enabled` topic and only publis
 
    ```
 
-2. **Run the nodes:**
+2. **Rebuild the Package:**
+
+   Before running the nodes, ensure you are in the osu-uwrt/development/software directory and again rebuild the riptide_turtle package:
+
+   ```bash
+   colcon build --packages-select riptide_turtle
+   ```
+
+3. **Run the nodes:**
 
    Start both the `TurtleNode` and `turtle_kill_switch` nodes:
 
    ```bash
-   ros2 run riptide_onboarding turtle_node
-   ros2 run riptide_onboarding turtle_kill_switch
+   ros2 run riptide_onboarding turtle_node.py
+   ros2 run riptide_onboarding turtle_kill_switch.py
    ```
 
 ### Result
@@ -257,7 +283,23 @@ Introduce ROS 2 parameters to dynamically adjust the turtle's linear and angular
 
    ```
 
-2. **Change the parameters dynamically:**
+2. **Rebuild the Package:**
+
+   Before running the node, ensure you are in the osu-uwrt/development/software directory and rebuild the riptide_turtle package:
+
+   ```bash
+   colcon build --packages-select riptide_turtle
+   ```
+
+3. **Restart the turtle node:**
+
+   If the turtle node is currently running, ctrl+c in the terminal to stop it. Then, restart the node:
+
+   ```bash
+   ros2 run riptide_onboarding turtle_node.py
+   ```
+
+4. **Change the parameters dynamically:**
 
    ```bash
    ros2 param set /turtle_node linear_speed 3.0
@@ -342,7 +384,23 @@ Add a service that resets the linear and angular speeds to their original values
 
    ```
 
-2. **Call the service to reset speeds:**
+2. **Rebuild the Package:**
+
+   Before running the node, ensure you are in the osu-uwrt/development/software directory and rebuild the riptide_turtle package:
+
+   ```bash
+   colcon build --packages-select riptide_turtle
+   ```
+
+3. **Restart the turtle node:**
+
+   If the turtle node is currently running, ctrl+c in the terminal to stop it. Then, restart the node:
+
+   ```bash
+   ros2 run riptide_onboarding turtle_node.py
+   ```
+
+4. **Call the service to reset speeds:**
 
    ```bash
    ros2 service call /reset_speed example_interfaces/srv/Trigger
