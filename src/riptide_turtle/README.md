@@ -57,7 +57,13 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
 
    **Note:** You will need to do this everytime you update a node file.
 
-3. **Run the node:**
+3. **Run the turtle sim:**
+
+   ```bash
+   ros2 run turtlesim turtlesim_node
+   ```
+
+4. **Run the turtle node:**
 
    ```bash
    ros2 run riptide_onboarding turtle_node.py
