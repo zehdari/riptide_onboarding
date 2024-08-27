@@ -12,9 +12,11 @@
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
-  <depend>rclpy</depend>
+  <depend>rclcpp</depend>
   <depend>turtlesim</depend>
   <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>example_interfaces</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
