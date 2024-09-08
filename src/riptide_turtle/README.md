@@ -165,6 +165,8 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
    colcon build --packages-select riptide_turtle
    ```
 
+   If you get an error saying the package isn't there, try opening a new terminal window and running it. The same applies for the run commands below.
+
    **Note:** You will need to do this everytime you update a node file.
 
 4. **Run the turtle sim:**
