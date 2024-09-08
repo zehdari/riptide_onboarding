@@ -174,7 +174,7 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
 4. **Run the turtle node:**
 
    ```bash
-   ros2 run riptide_onboarding turtle_node.py
+   ros2 run riptide_turtle turtle_node.py
    ```
 
 ### Result
@@ -368,7 +368,7 @@ Create a separate ROS 2 node that publishes to the `/turtle_enabled` topic, enab
 3. **Run the Kill Switch Node:**
 
    ```bash
-   ros2 run riptide_onboarding turtle_kill_switch.py
+   ros2 run riptide_turtle turtle_kill_switch.py
    ```
 
 4. **Check if the Kill Switch is Publishing:**
@@ -548,8 +548,8 @@ Modify the `TurtleNode` to listen to the `/turtle_enabled` topic and only publis
    Start both the `TurtleNode` and `turtle_kill_switch` nodes:
 
    ```bash
-   ros2 run riptide_onboarding turtle_node.py
-   ros2 run riptide_onboarding turtle_kill_switch.py
+   ros2 run riptide_turtle turtle_node.py
+   ros2 run riptide_turtle turtle_kill_switch.py
    ```
 
 ### Result
@@ -731,7 +731,7 @@ Introduce ROS 2 parameters to dynamically adjust the turtle's linear and angular
    If the turtle node is currently running, stop it using `ctrl+c` in the terminal. Then, restart the node:
 
    ```bash
-   ros2 run riptide_onboarding turtle_node.py
+   ros2 run riptide_turtle turtle_node.py
    ```
 
 4. **Change the parameters dynamically:**
@@ -944,7 +944,7 @@ Add a service that resets the linear and angular speeds to their original values
     If the turtle node is currently running, ctrl+c in the terminal to stop it. Then, restart the node:
 
     ```bash
-    ros2 run riptide_onboarding turtle_node.py
+    ros2 run riptide_turtle turtle_node.py
     ```
 
 4. **Call the service to reset speeds:**
