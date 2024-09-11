@@ -57,7 +57,7 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
         main()  # Run the main function if this script is executed directly
    ```
 
-   The topic you will need to publish to is "/turtle1/cmd_vel"
+   The topic you will need to publish to is `/turtle1/cmd_vel`
    
     **Helpful Links:**
 
@@ -250,7 +250,7 @@ Create a separate ROS 2 node that publishes to the `/turtle_enabled` topic, enab
        main()  # Run the main function if this script is executed directly
    ```
 
-   The topic you will need to publish to is `turtle_enabled`
+   The topic you will need to publish to is `/turtle_enabled`
    
    **Helpful Links:**
 
@@ -834,7 +834,7 @@ Add a service that resets the linear and angular speeds to their original values
         main()  # Run the main function if this script is executed directly
     ```
 
-   The service you will need to create to is `reset_speed`
+   The service you will need to create to is `/reset_speed`
    You will need the message type `Trigger` from `std_srvs.srv`
    
     **Helpful Links:**
