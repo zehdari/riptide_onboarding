@@ -834,6 +834,7 @@ Add a service that resets the linear and angular speeds to their original values
     ```
 
    The service you will need to create to is `reset_speed`
+   You will need the message type `Trigger` from `std_srvs.srv`
    
     **Helpful Links:**
 
@@ -882,6 +883,7 @@ Add a service that resets the linear and angular speeds to their original values
     from rclpy.node import Node  # Import the Node class from rclpy
     from geometry_msgs.msg import Twist  # Import the Twist message type for controlling the turtle
     from std_msgs.msg import Bool  # Import the Bool message type for enabling/disabling the turtle
+    from std_srvs.srv import Trigger # Import the trigger message type for the service
 
     class TurtleNode(Node):  # Define a new class 'TurtleNode' that inherits from the ROS 2 'Node' class
         def __init__(self):  # The constructor method to initialize the node's attributes and setup
