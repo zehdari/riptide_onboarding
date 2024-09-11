@@ -159,7 +159,7 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
 
 3. **Build the Package:**
 
-   Before running the node, ensure you are in the osu-uwrt/development/software directory and build the riptide_turtle package:
+   Before running the node, ensure you are in the `osu-uwrt/development/software` directory and build the riptide_turtle package:
 
    ```bash
    colcon build --packages-select riptide_turtle
@@ -946,7 +946,7 @@ Add a service that resets the linear and angular speeds to their original values
 
 3. **Rebuild the Package:**
 
-    Before running the node, ensure you are in the osu-uwrt/development/software directory and rebuild the riptide_turtle package:
+    Before running the node, ensure you are in the `osu-uwrt/development/software` directory and rebuild the riptide_turtle package:
 
     ```bash
     colcon build --packages-select riptide_turtle
