@@ -14,7 +14,11 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
 
 1. **Create a new Python script (`turtle_node.py`) in your ROS 2 package.**
 
-   Below is the skeleton of your `TurtleNode` class, including the `main()` function and the `Twist` message. Your task is to implement the missing functionality:
+   Below is the skeleton of your `TurtleNode` class, including the `main()` function and the `Twist` message.  
+   - The skeleton is located in `src/turtle_node.py`  
+   - The topic you will need to publish to is `/turtle1/cmd_vel`  
+  
+   Your task is to implement the missing functionality:
 
    ```python
     #!/usr/bin/env python3
@@ -56,8 +60,6 @@ Create a ROS 2 node that continuously publishes `Twist` messages to control the 
     if __name__ == '__main__':
         main()  # Run the main function if this script is executed directly
    ```
-
-   The topic you will need to publish to is `/turtle1/cmd_vel`
    
     **Helpful Links:**
 
@@ -197,7 +199,11 @@ Create a separate ROS 2 node that publishes to the `/turtle_enabled` topic, enab
 
 1. **Create a new Python script (`turtle_kill_switch.py`) in your ROS 2 package:**
 
-   Below is the skeleton of your `TurtleEnablePublisher` class. Your task is to implement the missing functionality:
+   Below is the skeleton of your `TurtleEnablePublisher` class.
+   - The skeleton is located in `src/turtle_kill_switch.py`
+   - The topic you will need to publish to is `/turtle_enabled`
+  
+   Your task is to implement the missing functionality:
 
    ```python
    #!/usr/bin/env python3
@@ -249,9 +255,7 @@ Create a separate ROS 2 node that publishes to the `/turtle_enabled` topic, enab
    if __name__ == '__main__':
        main()  # Run the main function if this script is executed directly
    ```
-
-   The topic you will need to publish to is `/turtle_enabled`
-   
+  
    **Helpful Links:**
 
    - [Writing a Simple Publisher and Subscriber (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)
@@ -403,7 +407,10 @@ Modify the `TurtleNode` to listen to the `/turtle_enabled` topic and only publis
 
 1. **Update the `TurtleNode` to include a subscriber:**
 
-   Below is the updated `TurtleNode` class. Your task is to implement the changes to listen to the `/turtle_enabled` topic and only publish `Twist` messages when the turtle is enabled:
+   Below is the updated `TurtleNode` class.
+   - The topic you will need to subscribe to is `turtle_enabled`
+  
+   Your task is to implement the changes to subscribe to the `/turtle_enabled` topic and only publish `Twist` messages when the turtle is enabled:
 
    ```python
    #!/usr/bin/env python3
@@ -450,8 +457,6 @@ Modify the `TurtleNode` to listen to the `/turtle_enabled` topic and only publis
    if __name__ == '__main__':
        main()  # Run the main function if this script is executed directly
    ```
-
-   The topic you will need to subscribe to is `turtle_enabled`
    
    **Helpful Links:**
 
@@ -576,7 +581,10 @@ Introduce ROS 2 parameters to dynamically adjust the turtle's linear and angular
 
 1. **Update the `TurtleNode` to use parameters for speed control:**
 
-   Below is the updated `TurtleNode` class with added ROS 2 parameters to control the turtle’s speed dynamically. Your task is to implement the changes:
+   Below is the updated `TurtleNode` class with added ROS 2 parameters to control the turtle’s speed dynamically.
+   
+  
+   Your task is to implement the changes:
 
    ```python
     #!/usr/bin/env python3
@@ -736,7 +744,7 @@ Introduce ROS 2 parameters to dynamically adjust the turtle's linear and angular
 
 3. **Restart the turtle node:**
 
-   If the turtle node is currently running, stop it using `ctrl+c` in the terminal. Type `bash` and hit enter, then restart the node:
+   If the turtle node is currently running, stop it using `ctrl+c` in the terminal. Type `bash` and hit enter to start a new bash session, then restart the node:
 
    ```bash
    ros2 run riptide_turtle turtle_node.py
@@ -764,6 +772,9 @@ The turtle’s speed changes dynamically based on the parameter values.
 Add a service that resets the linear and angular speeds to their original values.
 
 ### Implementation
+
+- The service you will need to create to is `/reset_speed`
+- You will need the message type `Trigger` from `std_srvs.srv`
 
 1. **Update the TurtleNode to include a reset speed service:**
 
@@ -834,8 +845,6 @@ Add a service that resets the linear and angular speeds to their original values
         main()  # Run the main function if this script is executed directly
     ```
 
-   The service you will need to create to is `/reset_speed`
-   You will need the message type `Trigger` from `std_srvs.srv`
    
     **Helpful Links:**
 
@@ -954,7 +963,7 @@ Add a service that resets the linear and angular speeds to their original values
 
 4. **Restart the turtle node:**
 
-    If the turtle node is currently running, ctrl+c in the terminal to stop it. Type `bash` and hit enter, then restart the node:
+    If the turtle node is currently running, ctrl+c in the terminal to stop it. Type `bash` and hit enter to start a new bash session, then restart the node:
 
     ```bash
     ros2 run riptide_turtle turtle_node.py
