@@ -963,7 +963,7 @@ Add a service that resets the linear and angular speeds to their original values
 5. **Call the service to reset speeds:**
 
     ```bash
-    ros2 service call /reset_speed example_interfaces/srv/Trigger
+    ros2 service call /reset_speed std_srvs/srv/Trigger
     ```
 
 ### Result
