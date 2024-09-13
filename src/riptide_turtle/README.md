@@ -553,7 +553,7 @@ Modify the `TurtleNode` to listen to the `/turtle_enabled` topic and only publis
 
 4. **Run the nodes:**
 
-   Start both the `TurtleNode` and `turtle_kill_switch` nodes:
+   Start both the `TurtleNode` and `turtle_kill_switch` nodes in separate terminals:
 
    ```bash
    ros2 run riptide_turtle turtle_node.py
@@ -736,7 +736,7 @@ Introduce ROS 2 parameters to dynamically adjust the turtle's linear and angular
 
 3. **Restart the turtle node:**
 
-   If the turtle node is currently running, stop it using `ctrl+c` in the terminal. Then, restart the node:
+   If the turtle node is currently running, stop it using `ctrl+c` in the terminal. Type `bash` and hit enter, then restart the node:
 
    ```bash
    ros2 run riptide_turtle turtle_node.py
@@ -954,7 +954,7 @@ Add a service that resets the linear and angular speeds to their original values
 
 4. **Restart the turtle node:**
 
-    If the turtle node is currently running, ctrl+c in the terminal to stop it. Then, restart the node:
+    If the turtle node is currently running, ctrl+c in the terminal to stop it. Type `bash` and hit enter, then restart the node:
 
     ```bash
     ros2 run riptide_turtle turtle_node.py
